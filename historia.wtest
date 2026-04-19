@@ -1,0 +1,40 @@
+import feroz.*
+import caperucita.*
+
+describe "historia del lobo Feroz" {
+
+    test "Introducción" {
+        feroz.correr()
+        feroz.correr()
+        feroz.comer(abuelita)
+        caperucita.perderManzana()
+        feroz.comer(caperucita)
+        assert.equals(19.1, feroz.peso())
+        assert.that(!feroz.estaSaludable())
+    }
+
+    test "Final 1: El cazador dispara a Feroz sin haber cargado la escopeta" {
+        feroz.correr()
+        feroz.correr()
+        feroz.comer(abuelita)
+        caperucita.perderManzana()
+        feroz.comer(caperucita)
+        cazador.dispararAFeroz()
+        feroz.comer(cazador)
+        assert.equals(28.6, feroz.peso())
+        assert.that(feroz.estaSaludable())
+    }
+
+    test "Final 2: El cazador dispara a Feroz habiendo cargado la escopeta" {
+        feroz.correr()
+        feroz.correr()
+        feroz.comer(abuelita)
+        caperucita.perderManzana()
+        feroz.comer(caperucita)
+        cazador.cargarEscopeta()
+        cazador.dispararAFeroz()
+        assert.equals(10, feroz.peso())
+        assert.that(!feroz.estaSaludable())
+    }
+    
+}
